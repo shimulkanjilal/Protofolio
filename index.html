@@ -1482,6 +1482,57 @@ input,textarea{font-family:inherit;font-size:inherit;color:inherit;}
   </div>
 </footer>
 
+<script type="application/json" id="siteData">{"projects": [{"id": "p1", "title": "Gopal Bigrah Mandir", "category": "web-apps", "description": "A beautiful and interactive website showcasing Gopal Bigrah Mandir's spiritual heritage and community events.", "role": "Frontend Development", "stack": "HTML, CSS, JavaScript", "live": "https://gopalbigrahmandir.netlify.app", "github": "https://github.com/shimulkanjilal", "status": "Live", "published": true}], "skills": [{"id": "k0", "name": "HTML", "level": 85, "tag": "PROFICIENT", "published": true}, {"id": "k1", "name": "CSS", "level": 65, "tag": "COMFORTABLE", "published": true}, {"id": "k2", "name": "Git & GitHub", "level": 58, "tag": "COMFORTABLE", "published": true}, {"id": "k3", "name": "Firebase", "level": 45, "tag": "GROWING", "published": true}, {"id": "k4", "name": "Figma", "level": 22, "tag": "LEARNING", "published": true}, {"id": "k5", "name": "JavaScript", "level": 18, "tag": "LEARNING", "published": true}], "services": [{"id": "s0", "title": "Web Design", "description": "Clean, purposeful layouts that guide attention and make content easy to scan and act on.", "published": true}, {"id": "s1", "title": "Frontend Development", "description": "Fast, accessible, pixel-accurate builds — semantic HTML, modern CSS, vanilla JavaScript.", "published": true}, {"id": "s2", "title": "UI Design", "description": "Design systems and interface components that stay consistent as a product grows.", "published": true}], "testimonials": [{"id": "t0", "name": "Tanvir Islam", "role": "Founder, Cafe Aroma", "quote": "Great communication and a clean, working site delivered fast.", "published": true}, {"id": "t1", "name": "Nusrat Jahan", "role": "Product Manager, Ledger", "quote": "Detail-oriented work — the animations and the premium layout really stood out.", "published": true}, {"id": "t2", "name": "Imran Kabir", "role": "Co-founder, Taskly", "quote": "Delivered on time, exactly to spec, and suggested improvements we hadn't even thought of.", "published": true}], "articles": [{"id": "a0", "title": "Getting Started with Frontend Development", "tag": "GUIDE", "date": "July 2024", "excerpt": "A beginner's guide to HTML, CSS, and JavaScript — learning the fundamentals and building your first webpage.", "url": "", "published": true}, {"id": "a1", "title": "Web Design Best Practices", "tag": "DESIGN", "date": "June 2024", "excerpt": "Key principles for building beautiful, accessible, and user-friendly web interfaces.", "url": "", "published": true}, {"id": "a2", "title": "Responsive Design Techniques", "tag": "RESPONSIVE", "date": "May 2024", "excerpt": "Media queries and mobile-first design — building websites that work on every device.", "url": "", "published": true}], "settings": {"email": "sl039978@gmail.com", "available": true, "s_projects": 1, "s_clients": 5, "s_years": 2, "s_certs": 1, "github": "https://github.com/shimulkanjilal", "linkedin": "https://www.linkedin.com/in/shimul-kanjilal/", "facebook": "https://www.facebook.com/SHIMULKANJILAL", "twitter": "https://x.com/shimulkanjilal3", "instagram": "https://www.instagram.com/shimulkanjilal/"}}</script>
+<script>
+(function(){
+var KEY='sk_portfolio_data_v1',EMB={};
+try{EMB=JSON.parse(document.getElementById('siteData').textContent)}catch(x){}
+function load(){try{var s=localStorage.getItem(KEY);return s?JSON.parse(s):null}catch(x){return null}}
+window.SK={KEY:KEY,load:load,embedded:function(){return JSON.parse(JSON.stringify(EMB))},
+ save:function(d){try{localStorage.setItem(KEY,JSON.stringify(d));return true}catch(x){return false}},
+ reset:function(){try{localStorage.removeItem(KEY)}catch(x){}}};
+var D=load()||EMB;if(!D||!D.projects)return;
+var S=D.settings||{};window.SK.email=S.email;
+var $=function(s){return document.querySelector(s)},$$=function(s){return Array.prototype.slice.call(document.querySelectorAll(s))};
+var e=function(s){return String(s==null?'':s).replace(/[&<>"']/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]})};
+var ok=function(u){return /^https?:\/\//i.test(u||'')},url=function(u){return ok(u)?e(u):''};
+var pad=function(n){return n<10?'0'+n:''+n};
+var pub=function(a){return (a||[]).filter(function(x){return x.published!==false})};
+var CAT={'web-apps':'Web Application','landing-pages':'Landing Page','ui-kits':'UI Kit'};
+function html(h){var t=document.createElement('div');t.innerHTML=h;return t}
+/* projects */
+var pr=$$('.project-block');
+if(pr.length){var host=pr[0].parentNode,empty=$('#projectsEmpty');
+ pr.forEach(function(n){n.remove()});
+ pub(D.projects).forEach(function(p,i){var n=pad(i+1),st=(p.stack||'').split(',').map(function(x){return x.trim()}).filter(Boolean);
+  var links=(url(p.live)?'<a href="'+url(p.live)+'" target="_blank" rel="noopener">Live Demo →</a>':'')+(url(p.github)?'<a href="'+url(p.github)+'" target="_blank" rel="noopener">GitHub →</a>':'');
+  host.insertBefore(html('<article class="project-block reveal" id="project-'+n+'" data-category="'+e(p.category)+'"><div class="project-visual"><span class="ph-index">'+n+'</span></div><div><div class="project-num-cat"><span>PROJECT '+n+'</span><span class="cat">· '+e(CAT[p.category]||p.category)+'</span></div><h3 class="project-title">'+e(p.title)+'</h3><p class="project-desc">'+e(p.description)+'</p><div class="project-stack">'+st.map(function(x){return '<span>'+e(x)+'</span>'}).join('')+'</div>'+(links?'<div class="project-links">'+links+'</div>':'')+'<div class="project-case-details"><div><span class="pcd-label">ROLE</span><span class="pcd-value">'+e(p.role)+'</span></div><div><span class="pcd-label">STACK</span><span class="pcd-value">'+e(st.join(' / '))+'</span></div><div><span class="pcd-label">STATUS</span><span class="pcd-value">'+e(p.status)+'</span></div></div></div></article>').firstChild,empty)})}
+/* skills */
+var sl=$('.skills-list');
+if(sl){var sk=pub(D.skills);sl.innerHTML=sk.map(function(s){return '<div class="skill-row"><span class="skill-name">'+e(s.name)+'</span><span class="skill-level-tag">'+e(s.tag)+'</span><span class="skill-level-num">'+e(s.level)+'%</span></div>'}).join('');var ey=$('.skills-head .eyebrow');if(ey)ey.textContent=pad(sk.length)+' skills'}
+/* services */
+var sv=$$('.service-row');
+if(sv.length){var sh=sv[0].parentNode,ref=sv[0];pub(D.services).forEach(function(s,i){sh.insertBefore(html('<div class="service-row reveal"><span class="service-num">'+pad(i+1)+'</span><span class="service-title">'+e(s.title)+'</span><span class="service-desc">'+e(s.description)+'</span></div>').firstChild,ref)});sv.forEach(function(n){n.remove()})}
+/* testimonials */
+var tw=$('.testi-wrap');
+if(tw){var ts=pub(D.testimonials);
+ if(ts.length)tw.innerHTML=ts.map(function(t,i){return '<div class="testi-slide'+(i?'':' active')+'"><p class="testi-quote">"'+e(t.quote)+'"</p><div class="testi-author"><div><div class="testi-author-name">'+e(t.name)+'</div><div class="testi-author-role">'+e(t.role)+'</div></div></div></div>'}).join('');
+ else{tw.innerHTML='<div class="testi-slide active"></div>';var tsec=$('.testimonials');if(tsec)tsec.style.display='none'}}
+/* articles */
+var ag=$('.articles-grid');
+if(ag){var ar=pub(D.articles);
+ if(ar.length){var meta=function(a){return '<div class="article-meta"><span class="a-cat">'+e(a.tag)+'</span><span>·</span><span>'+e(a.date)+'</span></div>'},f=ar[0];
+  ag.innerHTML='<a href="'+(url(f.url)||'#')+'" class="article-featured reveal" target="_blank" rel="noopener">'+meta(f)+'<h3 class="article-title">'+e(f.title)+'</h3><p class="article-desc">'+e(f.excerpt)+'</p><span class="article-arrow">Read article →</span></a>'+(ar.length>1?'<div class="articles-list reveal reveal-delay-1">'+ar.slice(1).map(function(a){return '<a href="'+(url(a.url)||'#')+'" class="article-row" target="_blank" rel="noopener">'+meta(a)+'<h3 class="article-title">'+e(a.title)+'</h3><p class="article-desc" style="margin-bottom:0;">'+e(a.excerpt)+'</p></a>'}).join('')+'</div>':'')}
+ else{var asec=$('#articles');if(asec)asec.style.display='none'}}
+/* stats, socials, email, availability */
+var sv2=[S.s_projects,S.s_clients,S.s_years,S.s_certs];
+$$('.stat-num').forEach(function(n,i){if(sv2[i]!=null)n.setAttribute('data-target',sv2[i])});
+var SM={'GitHub':'github','Facebook':'facebook','LinkedIn':'linkedin','Twitter / X':'twitter','Instagram':'instagram'};
+$$('a[aria-label]').forEach(function(a){var k=SM[a.getAttribute('aria-label')];if(k&&ok(S[k]))a.setAttribute('href',S[k])});
+if(S.email)$$('a[href^="mailto:"]').forEach(function(a){a.setAttribute('href','mailto:'+S.email);if(a.textContent.indexOf('@')>-1)a.textContent=S.email});
+if(S.available===false)$$('.availability-pill').forEach(function(n){n.style.display='none'});
+})();
+</script>
 <script>
 (function(){
   "use strict";
@@ -1656,7 +1707,7 @@ input,textarea{font-family:inherit;font-size:inherit;color:inherit;}
     var message = document.getElementById('cf-message').value;
     var subject = encodeURIComponent(subjectField || ('Portfolio inquiry from ' + name));
     var body = encodeURIComponent(message + '\n\n— ' + name + ' (' + email + ')');
-    window.location.href = 'mailto:sl039978@gmail.com?subject=' + subject + '&body=' + body;
+    window.location.href = 'mailto:' + ((window.SK && SK.email) || 'sl039978@gmail.com') + '?subject=' + subject + '&body=' + body;
   });
 
   /* Footer dynamic year */
@@ -1686,5 +1737,213 @@ input,textarea{font-family:inherit;font-size:inherit;color:inherit;}
 })();
 </script>
 
+<div id="skAdmin"></div>
+<script>
+const CSS="\n:host{all:initial;display:none;position:fixed;inset:0;z-index:99999;overflow:auto;background:#09090b;color:#eeeef0;--bg:#09090b;--s1:#111113;--s2:#17171a;--bd:rgba(255,255,255,.08);--bd2:rgba(255,255,255,.14);--tx:#eeeef0;--dim:#8b8b93;--faint:#55555d;--ac:#7c6cff;--ac2:#63e6d4;--red:#f87171;--grn:#4ade80;\n--fd:'Bricolage Grotesque',sans-serif;--fb:'Inter',system-ui,sans-serif;--fm:'JetBrains Mono',monospace}\n*{margin:0;padding:0;box-sizing:border-box}\n.shell{display:flex;min-height:100%;background:var(--bg);color:var(--tx);font:14px/1.5 var(--fb)}\nbutton{font:inherit;color:inherit;background:none;border:0;cursor:pointer}\ninput,select,textarea{font:inherit;color:var(--tx);background:var(--s2);border:1px solid var(--bd2);border-radius:8px;padding:9px 12px;width:100%}\ninput:focus,select:focus,textarea:focus,button:focus-visible{outline:2px solid var(--ac);outline-offset:1px}\naside{width:236px;background:var(--s1);border-right:1px solid var(--bd);padding:22px 14px;position:sticky;top:0;height:100vh;display:flex;flex-direction:column;gap:4px;flex-shrink:0}\n.logo{font:700 20px var(--fd);padding:0 10px 18px}.logo small{display:block;font:11px var(--fm);color:var(--dim);letter-spacing:.1em;text-transform:uppercase;margin-top:2px}\n.nav{display:flex;align-items:center;gap:10px;padding:9px 12px;border-radius:8px;color:var(--dim);text-align:left;width:100%}\n.nav:hover{background:var(--s2);color:var(--tx)}.nav.on{background:rgba(124,108,255,.14);color:var(--tx)}\n.nav .n{margin-left:auto;font:11px var(--fm);color:var(--faint)}\n.sp{flex:1}\nmain{flex:1;min-width:0;padding:32px 40px 60px}\nh1{font:700 30px var(--fd);letter-spacing:-.01em}\n.top{display:flex;align-items:center;justify-content:space-between;gap:14px;margin-bottom:24px;flex-wrap:wrap}\n.sub{color:var(--dim);margin-top:2px}\n.btn{padding:9px 16px;border-radius:8px;background:var(--ac);color:#fff;font-weight:500}.btn:hover{filter:brightness(1.1)}\n.btn.g{background:var(--s2);border:1px solid var(--bd2);color:var(--tx)}.btn.d{background:rgba(248,113,113,.12);color:var(--red)}\n.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:14px;margin-bottom:22px}\n.card{background:var(--s1);border:1px solid var(--bd);border-radius:14px;padding:20px}\n.stat b{display:block;font:700 34px var(--fd)}.stat span{color:var(--dim);font:12px var(--fm);text-transform:uppercase;letter-spacing:.08em}\n.two{display:grid;grid-template-columns:1fr 1fr;gap:14px}\nh3{font:600 16px var(--fd);margin-bottom:14px}\n.bar{margin-bottom:12px}.bar div:first-child{display:flex;justify-content:space-between;margin-bottom:5px}\n.track{height:6px;background:var(--s2);border-radius:9px;overflow:hidden}.track i{display:block;height:100%;background:linear-gradient(90deg,var(--ac),var(--ac2))}\n.log li{list-style:none;padding:9px 0;border-bottom:1px solid var(--bd);color:var(--dim);display:flex;justify-content:space-between;gap:10px}.log li:last-child{border:0}\n.log time{font:11px var(--fm);color:var(--faint);white-space:nowrap}\n.tools{display:flex;gap:10px;margin-bottom:14px}.tools input{max-width:320px}\n.tw{overflow-x:auto;background:var(--s1);border:1px solid var(--bd);border-radius:14px}\ntable{width:100%;border-collapse:collapse;min-width:560px}\nth{text-align:left;font:500 11px var(--fm);letter-spacing:.08em;text-transform:uppercase;color:var(--dim);padding:12px 16px;border-bottom:1px solid var(--bd)}\ntd{padding:12px 16px;border-bottom:1px solid var(--bd);vertical-align:middle}tr:last-child td{border:0}\ntd.t{font-weight:500}td .m{color:var(--dim);font-size:13px;display:block;max-width:420px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}\n.pill{font:11px var(--fm);padding:3px 9px;border-radius:99px;background:rgba(74,222,128,.12);color:var(--grn)}.pill.off{background:var(--s2);color:var(--dim)}\n.act{display:flex;gap:6px;justify-content:flex-end}.act button{padding:6px 10px;border-radius:6px;background:var(--s2);font-size:12px}.act button:hover{background:var(--bd2)}.act .x:hover{color:var(--red)}\n.empty{padding:40px;text-align:center;color:var(--dim)}\ndialog{margin:auto;background:var(--s1);color:var(--tx);border:1px solid var(--bd2);border-radius:16px;padding:26px;width:min(520px,calc(100% - 28px));max-height:90vh;overflow:auto}\ndialog::backdrop{background:rgba(0,0,0,.65);backdrop-filter:blur(4px)}\nlabel{display:block;font:500 11px var(--fm);letter-spacing:.08em;text-transform:uppercase;color:var(--dim);margin:14px 0 6px}\n.chk{display:flex;align-items:center;gap:10px;margin-top:16px}.chk input{width:auto}.chk label{margin:0;text-transform:none;letter-spacing:0;font:14px var(--fb);color:var(--tx)}\n.fa{display:flex;gap:10px;justify-content:flex-end;margin-top:22px}\n.set{display:grid;grid-template-columns:1fr 1fr;gap:0 16px}.set .full{grid-column:1/-1}\n#toast{position:fixed;bottom:24px;left:50%;transform:translate(-50%,20px);background:var(--tx);color:var(--bg);padding:10px 18px;border-radius:99px;opacity:0;transition:.3s;pointer-events:none;font-weight:500;z-index:9}\n#toast.on{opacity:1;transform:translate(-50%,0)}\n.mb{display:none}\n@media(max-width:860px){.shell{flex-direction:column}aside{position:static;width:100%;height:auto;flex-direction:row;overflow-x:auto;padding:10px;gap:4px}.logo,.sp,.nav .n{display:none}.nav{width:auto;white-space:nowrap}main{padding:22px 18px 60px}.two,.set{grid-template-columns:1fr}}\n";
+
+const host=document.getElementById('skAdmin');const R=host.attachShadow({mode:'open'});let dirty=false;
+const LOGIN_CSS=`
+#login{display:none;min-height:100vh;align-items:center;justify-content:center;padding:24px;background:var(--bg);color:var(--tx);font:14px/1.5 var(--fb)}
+.lc{width:min(400px,100%);background:var(--s1);border:1px solid var(--bd2);border-radius:18px;padding:32px}
+.lc h1{font:700 26px var(--fd);margin-bottom:4px}.lc .sub{margin-bottom:8px}
+.lc .btn{width:100%;margin-top:22px;padding:11px 16px}.lc .btn[disabled]{opacity:.6;cursor:wait}
+.lc .err{margin-top:14px;padding:10px 12px;border-radius:8px;background:rgba(248,113,113,.12);color:var(--red);font-size:13px}
+.lc .back{display:block;margin:18px auto 0;color:var(--dim);font-size:13px}.lc .back:hover{color:var(--tx)}
+.lm{color:var(--dim);font:13px var(--fm)}
+.sync{font:11px var(--fm);color:var(--dim);padding:6px 12px;min-height:28px}`;
+R.innerHTML=`<style>${CSS}${LOGIN_CSS}</style><div id="login"></div><div class="shell"><aside id="side"></aside><main id="app"></main></div><dialog id="dlg"></dialog><div id="toast"></div>`;
+const $=s=>R.querySelector(s);
+const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const uid=()=>Math.random().toString(36).slice(2,9);
+
+/* ---------- schema: one config drives every section ---------- */
+const SCHEMA={
+ projects:{label:'Projects',single:'Project',title:'title',meta:'category',fields:[
+  ['title','Title','text'],['category','Category','select',['web-apps','landing-pages','ui-kits']],['description','Description','textarea'],
+  ['role','Role','text'],['stack','Stack (comma separated)','text'],['live','Live demo URL','url'],['github','GitHub URL','url'],['status','Status','select',['Live','In progress','Archived']]]},
+ skills:{label:'Skills',single:'Skill',title:'name',meta:'level',fields:[
+  ['name','Name','text'],['level','Proficiency %','number'],['tag','Label','select',['PROFICIENT','COMFORTABLE','GROWING','LEARNING']]]},
+ services:{label:'Services',single:'Service',title:'title',meta:'description',fields:[['title','Title','text'],['description','Description','textarea']]},
+ testimonials:{label:'Testimonials',single:'Testimonial',title:'name',meta:'quote',fields:[['name','Name','text'],['role','Role / Company','text'],['quote','Quote','textarea']]},
+ articles:{label:'Articles',single:'Article',title:'title',meta:'excerpt',fields:[
+  ['title','Title','text'],['tag','Tag','text'],['date','Date','text'],['excerpt','Excerpt','textarea'],['url','Article URL','url']]},
+};
+let DB=SK.load()||SK.embedded();DB.log=DB.log||[];
+let syncMsg='';
+const setSync=m=>{syncMsg=m;const el=$('#sync');if(el)el.textContent=m};
+const snapDB=()=>{const {log,...o}=DB;return o};
+const cloudErr=x=>x&&x.code==='permission-denied'?'● Blocked by Firestore rules':'● Cloud save failed';
+function pushRemote(){clearTimeout(pushRemote.h);setSync('Saving…');
+ pushRemote.h=setTimeout(async()=>{try{await window.SKDB.set(snapDB());setSync('● Saved to cloud')}catch(x){setSync(cloudErr(x));toast('Cloud save failed — changes kept on this device only')}},500)}
+const save=()=>{dirty=true;DB.updatedAt=Date.now();if(!SK.save(DB))toast('Could not save (storage blocked)');pushRemote()};
+const logit=t=>{DB.log.unshift({t,at:Date.now()});DB.log=DB.log.slice(0,30);save()};
+function toast(m){const t=$('#toast');t.textContent=m;t.classList.add('on');clearTimeout(toast.h);toast.h=setTimeout(()=>t.classList.remove('on'),2200)}
+const ago=ts=>{const m=Math.round((Date.now()-ts)/6e4);return m<1?'just now':m<60?m+'m ago':m<1440?Math.round(m/60)+'h ago':Math.round(m/1440)+'d ago'};
+
+/* ---------- routing ---------- */
+let view='dashboard',q='';
+const go=v=>{view=v;q='';render()};
+function sidebar(){
+ const items=[['dashboard','Dashboard'],...Object.entries(SCHEMA).map(([k,s])=>[k,s.label]),['settings','Settings']];
+ $('#side').innerHTML='<div class="logo">SK Admin<small>Portfolio CMS</small></div>'+items.map(([k,l])=>
+  `<button class="nav ${view===k?'on':''}" data-v="${k}">${l}${SCHEMA[k]?`<span class="n">${DB[k].length}</span>`:''}</button>`).join('')+'<div class="sp"></div><div class="sync" id="sync">'+esc(syncMsg)+'</div><button class="nav" data-v="_out">Sign out</button><button class="nav" data-v="_site">← Back to site</button>';
+ R.querySelectorAll('.nav').forEach(b=>b.onclick=()=>b.dataset.v==='_site'?closeAdmin():b.dataset.v==='_out'?signOutNow():go(b.dataset.v));
+}
+function render(){sidebar();view==='dashboard'?dash():view==='settings'?settings():list(view);host.scrollTo(0,0)}
+
+/* ---------- dashboard ---------- */
+function dash(){
+ const st=DB.settings;
+ $('#app').innerHTML=`<div class="top"><div><h1>Welcome back</h1><p class="sub">Here's what's on your portfolio right now.</p></div></div>
+ <div class="grid">${Object.entries(SCHEMA).map(([k,s])=>{const p=DB[k].filter(x=>x.published).length;return `<div class="card stat"><b>${DB[k].length}</b><span>${s.label}</span><div class="sub" style="margin-top:6px;font-size:12px">${p} published</div></div>`}).join('')}</div>
+ <div class="two"><div class="card"><h3>Skills overview</h3>${DB.skills.length?DB.skills.map(s=>`<div class="bar"><div><span>${esc(s.name)}</span><span style="color:var(--dim)">${esc(s.level)}%</span></div><div class="track"><i style="width:${Math.min(100,Math.max(0,s.level))}%"></i></div></div>`).join(''):'<p class="sub">No skills yet.</p>'}</div>
+ <div class="card"><h3>Recent activity</h3><ul class="log">${DB.log.length?DB.log.slice(0,8).map(l=>`<li><span>${esc(l.t)}</span><time>${ago(l.at)}</time></li>`).join(''):'<li>No changes yet.</li>'}</ul></div></div>`;
+}
+
+/* ---------- list + CRUD ---------- */
+function list(k){
+ const S=SCHEMA[k],rows=DB[k].filter(r=>JSON.stringify(r).toLowerCase().includes(q.toLowerCase()));
+ $('#app').innerHTML=`<div class="top"><div><h1>${S.label}</h1><p class="sub">${DB[k].length} total</p></div><button class="btn" id="add">+ New ${S.single.toLowerCase()}</button></div>
+ <div class="tools"><input id="q" type="search" placeholder="Search ${S.label.toLowerCase()}…" value="${esc(q)}"></div>
+ <div class="tw">${rows.length?`<table><thead><tr><th>${S.single}</th><th>Status</th><th></th></tr></thead><tbody>${rows.map(r=>`<tr><td class="t">${esc(r[S.title])}<span class="m">${esc(r[S.meta])}${S.meta==='level'?'%':''}</span></td>
+ <td><button data-t="${r.id}" class="pill ${r.published?'':'off'}">${r.published?'Published':'Hidden'}</button></td>
+ <td><div class="act"><button data-e="${r.id}">Edit</button><button data-u="${r.id}">↑</button><button data-d="${r.id}" class="x">Delete</button></div></td></tr>`).join('')}</tbody></table>`:'<div class="empty">Nothing here yet.</div>'}</div>`;
+ $('#add').onclick=()=>form(k);
+ const qi=$('#q');qi.oninput=()=>{q=qi.value;const p=qi.selectionStart;list(k);const n=$('#q');n.focus();n.setSelectionRange(p,p)};
+ R.querySelectorAll('[data-e]').forEach(b=>b.onclick=()=>form(k,b.dataset.e));
+ R.querySelectorAll('[data-t]').forEach(b=>b.onclick=()=>{const r=DB[k].find(x=>x.id===b.dataset.t);r.published=!r.published;logit((r.published?'Published ':'Hid ')+r[S.title]);list(k);sidebar()});
+ R.querySelectorAll('[data-u]').forEach(b=>b.onclick=()=>{const a=DB[k],i=a.findIndex(x=>x.id===b.dataset.u);if(i>0){[a[i-1],a[i]]=[a[i],a[i-1]];save();list(k)}});
+ R.querySelectorAll('[data-d]').forEach(b=>b.onclick=()=>{const r=DB[k].find(x=>x.id===b.dataset.d);if(confirm(`Delete "${r[S.title]}"?`)){DB[k]=DB[k].filter(x=>x!==r);logit('Deleted '+r[S.title]);list(k);sidebar();toast('Deleted')}});
+}
+function form(k,id){
+ const S=SCHEMA[k],r=id?DB[k].find(x=>x.id===id):{published:true},d=$('#dlg');
+ d.innerHTML=`<form id="f"><h3>${id?'Edit':'New'} ${S.single.toLowerCase()}</h3>${S.fields.map(([n,l,t,o])=>`<label for="f_${n}">${l}</label>`+(t==='textarea'?`<textarea id="f_${n}" name="${n}" rows="4">${esc(r[n])}</textarea>`:t==='select'?`<select id="f_${n}" name="${n}">${o.map(x=>`<option ${r[n]===x?'selected':''}>${x}</option>`).join('')}</select>`:`<input id="f_${n}" name="${n}" type="${t}" ${t==='number'?'min="0" max="100"':''} value="${esc(r[n])}" ${n===S.title?'required':''}>`)).join('')}
+ <div class="chk"><input type="checkbox" id="f_pub" name="published" ${r.published?'checked':''}><label for="f_pub">Published (visible on site)</label></div>
+ <div class="fa"><button type="button" class="btn g" id="cx">Cancel</button><button class="btn">Save</button></div></form>`;
+ d.showModal();$('#cx').onclick=()=>d.close();
+ $('#f').onsubmit=e=>{e.preventDefault();const f=new FormData(e.target),o=id?r:{id:uid()};
+  S.fields.forEach(([n,,t])=>o[n]=t==='number'?+f.get(n)||0:(f.get(n)||'').trim());o.published=f.has('published');
+  if(!id)DB[k].push(o);logit((id?'Updated ':'Added ')+o[S.title]);d.close();render();toast('Saved')};
+}
+
+/* ---------- settings ---------- */
+function settings(){
+ const s=DB.settings,F=(n,l,t='text',full)=>`<div class="${full?'full':''}"><label for="s_${n}">${l}</label><input id="s_${n}" name="${n}" type="${t}" value="${esc(s[n])}"></div>`;
+ $('#app').innerHTML=`<div class="top"><div><h1>Settings</h1><p class="sub">Profile, counters, social links and backups.</p></div></div>
+ <form id="sf" class="card"><div class="set">${F('email','Contact email','email',1)}
+ ${F('s_projects','Projects completed','number')}${F('s_clients','Happy clients','number')}${F('s_years','Years learning','number')}${F('s_certs','Certificates','number')}
+ ${F('github','GitHub','url')}${F('linkedin','LinkedIn','url')}${F('facebook','Facebook','url')}${F('twitter','Twitter / X','url')}${F('instagram','Instagram','url')}</div>
+ <div class="chk"><input type="checkbox" id="s_av" name="available" ${s.available?'checked':''}><label for="s_av">Show "Available for work" badge</label></div>
+ <div class="fa"><button class="btn">Save settings</button></div></form>
+ <div class="card" style="margin-top:14px"><h3>Backup &amp; data</h3><p class="sub" style="margin-bottom:14px">Edits save in this browser and show on your site instantly. To make them live for everyone, click <b>Download updated index.html</b> and upload it to your host (Netlify etc.).</p>
+ <div style="display:flex;gap:10px;flex-wrap:wrap"><button class="btn" id="eh">Download updated index.html</button><button class="btn g" id="ex">Export JSON</button><button class="btn g" id="im">Import JSON</button><button class="btn d" id="rs">Reset to defaults</button></div><input type="file" id="fi" accept=".json" hidden></div>`;
+ $('#sf').onsubmit=e=>{e.preventDefault();const f=new FormData(e.target);for(const [k,v]of f)s[k]=k.startsWith('s_')?+v||0:v.trim();s.available=f.has('available');logit('Updated settings');toast('Settings saved');sidebar()};
+ const dl=(txt,name,type)=>{const a=document.createElement('a');a.href=URL.createObjectURL(new Blob([txt],{type}));a.download=name;a.click()};
+ const snap=()=>{const {log,...o}=DB;return o};
+ $('#ex').onclick=()=>{dl(JSON.stringify(snap(),null,2),'site-data.json','application/json');toast('Exported')};
+ $('#eh').onclick=async()=>{try{const r=await fetch(location.href.split('#')[0],{cache:'no-store'});if(!r.ok)throw 0;let t=await r.text();const re=/(<script type="application\/json" id="siteData">)[\s\S]*?(<\/script>)/;if(!re.test(t))throw 0;const j=JSON.stringify(snap()).replace(/</g,'\\u003c');t=t.replace(re,(m,a,b)=>a+j+b);dl(t,'index.html','text/html');toast('index.html downloaded')}catch(x){dl(JSON.stringify(snap(),null,2),'site-data.json','application/json');toast('Open the site from a web host to export HTML — saved JSON instead')}};
+ $('#im').onclick=()=>$('#fi').click();
+ $('#fi').onchange=e=>{const fr=new FileReader();fr.onload=()=>{try{const j=JSON.parse(fr.result);if(!j.settings)throw 0;DB={log:[],...j};logit('Imported data');render();toast('Imported')}catch(x){toast('Invalid file')}};fr.readAsText(e.target.files[0])};
+ $('#rs').onclick=()=>{if(confirm('Reset everything to the original portfolio content?')){SK.reset();DB=SK.embedded();DB.log=[];save();render();toast('Reset done')}};
+}
+/* ---------- Firebase Auth gate ---------- */
+const OWNER_EMAIL='sl039978@gmail.com'; // only this account may enter. Set '' to allow any signed-in user.
+const allowed=u=>!!u&&(!OWNER_EMAIL||(u.email||'').toLowerCase()===OWNER_EMAIL.toLowerCase());
+const authInit=()=>window.SKAuth?Promise.resolve(window.SKAuth):new Promise((res,rej)=>{addEventListener('skauth-init',()=>res(window.SKAuth),{once:true});setTimeout(()=>rej(new Error('timeout')),8000)});
+const AUTH_ERR={'auth/invalid-credential':'Incorrect email or password.','auth/invalid-email':'Enter a valid email address.','auth/user-disabled':'This account has been disabled.','auth/too-many-requests':'Too many attempts. Wait a few minutes and try again.','auth/network-request-failed':'Network error. Check your connection.'};
+function showLogin(msg){
+ $('.shell').style.display='none';
+ const L=$('#login');L.style.display='flex';
+ L.innerHTML=`<form class="lc" id="lf" autocomplete="on"><h1>SK Admin</h1><p class="sub">Sign in to manage your portfolio.</p>
+  <label for="le">Email</label><input id="le" type="email" autocomplete="username" required>
+  <label for="lp">Password</label><input id="lp" type="password" autocomplete="current-password" required>
+  ${msg?`<div class="err" role="alert">${esc(msg)}</div>`:''}
+  <button class="btn" id="lb" type="submit">Sign in</button>
+  <button class="back" id="lx" type="button">← Back to site</button></form>`;
+ $('#lx').onclick=closeAdmin;
+ $('#lf').onsubmit=async ev=>{ev.preventDefault();const b=$('#lb');b.disabled=true;b.textContent='Signing in…';
+  try{const A=await authInit();const cr=await A.signIn($('#le').value.trim(),$('#lp').value);
+   if(!allowed(cr.user)){await A.signOut();showLogin('This account is not authorised to manage this site.')}
+   else enter()}
+  catch(x){showLogin(AUTH_ERR[x&&x.code]||'Sign-in failed. Please try again.')}};
+ setTimeout(()=>{const f=$('#le');f&&f.focus()},30);
+}
+async function loadRemote(){
+ try{
+  const r=await window.SKDB.get();
+  if(r&&r.projects&&(DB.updatedAt||0)<=(r.updatedAt||0)){const log=DB.log||[];DB={...r,log};SK.save(DB);setSync('● Synced with cloud')}
+  else{DB.updatedAt=DB.updatedAt||Date.now();await window.SKDB.set(snapDB());SK.save(DB);setSync(r?'● Pushed local changes':'● Cloud seeded')}
+ }catch(x){setSync(x&&x.code==='permission-denied'?'● Blocked by Firestore rules':'● Offline — using local copy')}
+}
+async function enter(){$('#login').style.display='none';$('.shell').style.display='flex';setSync('Syncing…');render();await loadRemote();render()}
+async function signOutNow(){try{await (await authInit()).signOut()}catch(x){}showLogin()}
+async function openAdmin(){
+ host.style.display='block';document.body.style.overflow='hidden';
+ $('.shell').style.display='none';const L=$('#login');L.style.display='flex';L.innerHTML='<p class="lm">Checking sign-in…</p>';
+ try{
+  const A=await authInit();await A.ready;
+  if(!openAdmin.w){openAdmin.w=1;A.onChange(u=>{if(host.style.display==='block'&&!allowed(u))showLogin()})}
+  if(allowed(A.user))enter();
+  else if(A.user){await A.signOut();showLogin('This account is not authorised to manage this site.')}
+  else showLogin();
+ }catch(x){showLogin('Could not load sign-in. Check your connection and reload the page.')}
+}
+function closeAdmin(){host.style.display='none';document.body.style.overflow='';if(location.hash==='#admin')history.replaceState(null,'',location.pathname+location.search);if(dirty)location.reload()}
+window.addEventListener('hashchange',()=>{if(location.hash==='#admin')openAdmin()});
+document.addEventListener('keydown',e=>{if(e.ctrlKey&&e.shiftKey&&e.key==='A'){e.preventDefault();openAdmin()}});
+if(location.hash==='#admin')openAdmin();
+
+</script>
+<script type="module">
+// Firebase Auth (web config is public by design; protect data with security rules)
+import {initializeApp} from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+import {getAuth,onAuthStateChanged,signInWithEmailAndPassword,signOut} from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
+import {getFirestore,doc,getDoc,setDoc} from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
+
+const firebaseConfig = {
+  apiKey: "AIzaSyC4tOVk7ku2Fvsf8Mqy5qaTKzejho-Rpb4",
+  authDomain: "shimul-kanjilal-website.firebaseapp.com",
+  projectId: "shimul-kanjilal-website",
+  storageBucket: "shimul-kanjilal-website.firebasestorage.app",
+  messagingSenderId: "361399716542",
+  appId: "1:361399716542:web:34b01e2a406ff04aac6cef",
+  measurementId: "G-GLR4XD4FSE"
+};
+
+const app = initializeApp(firebaseConfig);
+const auth = getAuth(app);
+const fs = getFirestore(app);
+const ref = doc(fs, 'site', 'content');
+const subs = [];
+let resolveReady;
+const ready = new Promise(r => resolveReady = r);
+window.SKAuth = {
+  user: null, ready,
+  signIn: (email, pw) => signInWithEmailAndPassword(auth, email, pw),
+  signOut: () => signOut(auth),
+  onChange: f => subs.push(f)
+};
+onAuthStateChanged(auth, u => { window.SKAuth.user = u; resolveReady(); subs.forEach(f => f(u)); });
+window.SKDB = {
+  get: async () => { const s = await getDoc(ref); return s.exists() ? JSON.parse(s.data().json) : null; },
+  set: data => setDoc(ref, { json: JSON.stringify(data), updatedAt: data.updatedAt || Date.now() })
+};
+dispatchEvent(new Event('skauth-init'));
+
+// Public visitors: pull the latest published content. If it differs from the
+// cached copy, store it and reload once so the page renders the new content.
+(async () => {
+  try {
+    const r = await window.SKDB.get();
+    if (!r || !r.projects) return;
+    const c = window.SK && SK.load();
+    if (c && (c.updatedAt || 0) >= (r.updatedAt || 0)) return;
+    if (!SK.save(r)) return;
+    const a = document.getElementById('skAdmin');
+    if (location.hash === '#admin' || (a && a.style.display === 'block')) return;
+    location.reload();
+  } catch (e) { /* offline or rules not set: keep cached/embedded content */ }
+})();
+</script>
 </body>
 </html>
